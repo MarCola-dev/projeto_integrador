@@ -37,6 +37,7 @@ export default function Register() {
             email,
             senha,
             whatsapp,
+            type,
             city,
             uf,
         };

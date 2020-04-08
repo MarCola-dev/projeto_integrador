@@ -62,7 +62,6 @@ export default function Profile() {
             <h1>Casos cadastrados</h1>
 
             <ul>
-                
                     {incidents.map(incident => (
                         <li key={incident.id}>
                             <strong>CASO:</strong>
@@ -79,7 +78,6 @@ export default function Profile() {
                             </button>
                         </li>
                     ))}
-                
             </ul>
         </div>
     );

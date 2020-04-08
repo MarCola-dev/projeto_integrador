@@ -6,12 +6,13 @@ import api from '../../services/api'
 
 import './styles.css'
 
-import logoImg from '../../assets/logo.png'
-
 export default function NewIncident() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [value, setValue] = useState('');
+    const [name, setName] = useState('');
+    const [type, setType] = useState('')
+    const [city, setCity] = useState('')
+    const [uf, setUf] = useState('')
 
     const ongId = localStorage.getItem('ongId')
     const history = useHistory()
@@ -22,7 +23,10 @@ export default function NewIncident() {
         const data = {
             title,
             description,
-            value,
+            name,
+            type,
+            city,
+            uf,
         };
 
         try {
@@ -42,8 +46,6 @@ export default function NewIncident() {
         <div className="new-incident-container">
             <div className="content">
                 <section>
-                    <img src={logoImg} alt="Be The Hero"/>
-
                     <h1>Cadastrar novo caso</h1>
 
                     <p>Descreva o caso detalhadamente para encontrar um herói para resolver isso.</p>
@@ -65,12 +67,40 @@ export default function NewIncident() {
                         value={description}
                         onChange={e => setDescription(e.target.value)}
                     />
-                    <input 
-                        placeholder="Valor em reais"
-                        value={value}
-                        onChange={e => setValue(e.target.value)}
-                    />
+                    <div className="input-group">
+                        <input
+                            placeholder="Nome"
+                            value={name}
+                            onChange={e => setName(e.target.value)} 
+                        />
+                        
+                        <select name="Tipo sanguineo" onChange={e => setType(e.target.value)}>
+                            <option value="">Tipo</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
 
+                    <div className="input-group">
+                        <input
+                            placeholder="Cidade"
+                            value={city}
+                            onChange={e => setCity(e.target.value)} 
+                        />
+
+                        <input
+                            className="state"
+                            placeholder="UF"
+                            value={uf}
+                            onChange={e => setUf(e.target.value)} 
+                        />                       
+                    </div>
                     <button className="button" type="submit">Cadastrar</button>
                 </form>
             </div>
