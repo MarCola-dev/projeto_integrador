@@ -12,17 +12,16 @@ import heroesImg from '../../assets/heroes.svg'
 
 export default function Logon() {
     const [email, setEmail] = useState('') 
-    const [senha, setSenha] = useState('') 
+    const [password, setPassword] = useState('') 
     const history = useHistory();
 
     async function handleLogin(e) {
         e.preventDefault();
-        if (!email || !senha) {
+        if (!email || !password) {
             return alert("Preencha o LOGIN e SENHA para continuar!")
         } else {
-
             try {
-                const response = await api.post("/sessions", { email, senha });
+                const response = await api.post("/sessions", { email, password });
                 login(response.data.token)
                 history.push('/profile')
             } catch (err) {
@@ -47,8 +46,8 @@ export default function Logon() {
 
                     <input 
                         placeholder="Sua senha"
-                        value={senha}
-                        onChange={e => setSenha(e.target.value)}
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
                     />
                     <button className="button" type="submit">Entrar</button>
 
