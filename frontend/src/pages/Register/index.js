@@ -123,6 +123,7 @@ export default function Register() {
                         <input 
                             placeholder="UF" 
                             style={{ width: 80 }}
+                            maxLength="2"
                             value={uf}
                             onChange={e => setUf(e.target.value)} 
                         />
