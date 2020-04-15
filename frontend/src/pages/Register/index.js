@@ -10,8 +10,8 @@ import logoImg from '../../assets/logo.png'
 export default function Register() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
-    const [confirmasenha, setConfirmaSenha] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
     const [whatsapp, setWhatsapp] = useState('')
     const [type, setType] = useState('')
     const [city, setCity] = useState('')
@@ -23,11 +23,11 @@ export default function Register() {
     async function handlerRegister(e) {
         e.preventDefault();
 
-        if (senha !== confirmasenha ) {
+        if (password !== confirmPassword ) {
             return alert("Senhas não conferem")
         }
 
-        if (!name || !email || !senha || !confirmasenha || !whatsapp || !type || !city || !uf ) {
+        if (!name || !email || !password || !confirmPassword || !whatsapp || !type || !city || !uf ) {
             return alert(`Preencha todos os campos ${type}`)            
         } 
 
@@ -35,7 +35,7 @@ export default function Register() {
         const data = {
             name,
             email,
-            senha,
+            password,
             whatsapp,
             type,
             city,
@@ -84,15 +84,15 @@ export default function Register() {
                     <input 
                         type="password" 
                         placeholder="Senha"
-                        value={senha}
-                        onChange={e => setSenha(e.target.value)} 
+                        value={password}
+                        onChange={e => setPassword(e.target.value)} 
                     />
 
                     <input 
                         type="password" 
                         placeholder="Confirme a Senha"
-                        value={confirmasenha}
-                        onChange={e => setConfirmaSenha(e.target.value)} 
+                        value={confirmPassword}
+                        onChange={e => setConfirmPassword(e.target.value)} 
                     />
                     <div className="input-group">
                         <input
