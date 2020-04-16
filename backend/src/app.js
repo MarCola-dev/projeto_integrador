@@ -1,44 +1,31 @@
-const express = require('express');
+const express = require('express');//Importando o express
 const cors = require('cors');
-const { errors } = require('celebrate')
+const {errors}=require('celebrate');
 const routes = require('./routes');
-
 const app = express();
-
-app.use(cors());
 app.use(express.json());
+app.use(cors());
+// criando a aplicação onde depois
+//vai ter as rotas e as funcionalidades
 app.use(routes);
 app.use(errors());
+/*metodo 
+GET busca informação no backend
+POST criar informação no backend
+PUT altera uma informação no backend
+DELETE delea uma informação no backend
 
-module.exports = app
-
-/**
- * Rota / Recursos
- */
-
-/**
- * Métodos HTTP:
- * 
- * GET: Buscar/Listar uma informação do back-end
- * POST: Criar uma informação no back-end
- * PUT: Alterar uma informação no back-end
- * DELETE: Deletar uma informação no back-end
+*/
+/*
+Tipo de parametros
+Query params: vai dentro da url(rota) iusado pra filtro e paginação geralemte depois de um"?"
+Route params: utilizado pra identificar recursos
+Request Body: utilizado pra criar ou alterar recursos, o corpo da requisição
 */
 
-/**
- * Tipos de parâmetros:
- * 
- * Query Params: Parâmetros nomeados enviados na rota após "?" ( Filtros, paginação )
- * Route Params: Parâmetros utilizados para indetificar recursos
- * Request Body: Corpo da requisição utilizado para criar ou alterar recursos
-*/
 
-/**
- * SQL: MySQL, SQLite, PostreSQL, Oracle, Microsft SQL Server
- * NoSQL: MongoDB, CouchDB, etc
-*/
+//aqui dentro eu coloco a rota que
+//eu quero acessar (nesse caso é a 3333)
 
-/**
- * Driver: SELECT * FROM users
- * Query Builder: table('users').select('*').where()
- */
+module.exports = app;//Aqui eu configuro 
+//a porta onde minha aplicação vai rodar
