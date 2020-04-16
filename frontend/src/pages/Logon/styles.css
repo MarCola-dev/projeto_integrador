@@ -9,9 +9,9 @@
     justify-content: space-between;
 }
 
-.logo-container .heroesImg {
-    width: 500px;
-    height: 500px;
+.logo-container .doeImg {
+    width: 800px;
+    height: 800px;
 }
 
 .logo-container section.form {

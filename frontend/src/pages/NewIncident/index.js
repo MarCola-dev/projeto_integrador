@@ -30,7 +30,7 @@ export default function NewIncident() {
         };
 
         try {
-            await api.post('incidents', data, {
+            await api.post('cases', data, {
                 headers: {
                     Authorization: ongId,
                 }
@@ -48,7 +48,7 @@ export default function NewIncident() {
                 <section>
                     <h1>Cadastrar novo caso</h1>
 
-                    <p>Descreva o caso detalhadamente para encontrar um herói para resolver isso.</p>
+                    <p>Descreva o caso detalhadamente para encontrar um doador para resolver isso.</p>
 
                     <Link className="back-link" to="/profile">
                         <FiArrowLeft size={16} color="#E02041"/>

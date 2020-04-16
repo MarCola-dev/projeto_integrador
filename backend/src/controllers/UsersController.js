@@ -23,8 +23,8 @@ module.exports = {
            city,
            uf,
         })
-         if (situação>0){
-            return response.json({ email, password});
+         if (situação > 0){
+            return response.json({ email, password });
          }
          else{
              return response.status(400).send();

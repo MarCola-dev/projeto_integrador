@@ -5,7 +5,7 @@ import { FiArrowLeft } from 'react-icons/fi'
 import api from '../../services/api';
 import './styles.css'
 
-import logoImg from '../../assets/logo.png'
+import logoImg from '../../assets/mascote.png'
 
 export default function Register() {
     const [name, setName] = useState('')
@@ -19,7 +19,6 @@ export default function Register() {
 
     const history = useHistory();
 
-
     async function handlerRegister(e) {
         e.preventDefault();
 
@@ -30,7 +29,6 @@ export default function Register() {
         if (!name || !email || !password || !confirmPassword || !whatsapp || !type || !city || !uf ) {
             return alert(`Preencha todos os campos ${type}`)            
         } 
-
 
         const data = {
             name,
@@ -43,12 +41,13 @@ export default function Register() {
         };
 
         try {
-            const response = await api.post('ongs', data)
+            await api.post('users', data)
 
             history.push('/')
         } catch (err) {
-            alert('Erro no cadsatro, tente novamente.');
+            alert("Error ao cadastrar, por favor, tente novamente!");
         }
+        
     }
 
     return (
@@ -59,7 +58,7 @@ export default function Register() {
 
                     <h1>Cadastro</h1>
 
-                    <p>Faça seu cadastro, entre na plataforma e ajude pessoas a encontrarem os casos da sua ONG.</p>
+                    <p>Faça seu cadastro, entre na plataforma e ajude as pessoas a encontrarem seu caso.</p>
 
                     <Link className="back-link" to="/">
                         <FiArrowLeft size={16} color="#E02041"/>

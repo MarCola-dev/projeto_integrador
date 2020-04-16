@@ -6,8 +6,8 @@ import login from '../../services/auth'
 
 import './styles.css'
 
-import logoImg from '../../assets/logo.png'
-import heroesImg from '../../assets/heroes.svg'
+import logoImg from '../../assets/mascote.png'
+import doeImg from '../../assets/doeSangue.svg'
 
 
 export default function Logon() {
@@ -23,6 +23,9 @@ export default function Logon() {
             try {
                 const response = await api.post("/sessions", { email, password });
                 login(response.data.token)
+
+                localStorage.setItem('Name', response.data.name)
+                localStorage.setItem('Id', response.data.id)
                 history.push('/profile')
             } catch (err) {
                 alert('Falha no login, tente novamente!');
@@ -33,19 +36,21 @@ export default function Logon() {
     return (
         <div className="logo-container">
             <section className="form">
-                <img src={logoImg} alt="Be The Hero"/>
+                <img src={logoImg} alt="Mais Sangue"/>
 
                 <form onSubmit={handleLogin}>
                     <h1>Faça seu logon</h1>
 
                     <input 
                         placeholder="Seu email"
+                        type="email"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                     />
 
                     <input 
                         placeholder="Sua senha"
+                        type="password" 
                         value={password}
                         onChange={e => setPassword(e.target.value)}
                     />
@@ -57,7 +62,7 @@ export default function Logon() {
                     </Link>
                 </form>
             </section>
-            <img className="heroesImg" src={heroesImg} alt="Heroes"/>
+            <img className="doeImg" src={doeImg} alt="Heroes"/>
         </div>
     );
 }

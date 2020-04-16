@@ -28,8 +28,8 @@ export default function Routes() {
                 <Route path="/" exact component={Logon} />
                 <Route path="/register" component={Register} />
                 
-                <Route path="/profile" component={Profile} />
-                <Route path="/incidents/new" component={NewIncident} />
+                <PrivateRoute path="/profile" component={Profile} />
+                <PrivateRoute path="/cases/new" component={NewIncident} />
             </Switch>
         </BrowserRouter>
     );

@@ -24,7 +24,7 @@ routes.post('/users', celebrate({
         email: Joi.string().required().email(),
         password: Joi.string().required().min(6).max(8),
         whatsapp: Joi.string().required().min(10).max(11),
-        type: Joi.string().required().length(3),
+        type: Joi.string().required(),
         city: Joi.string().required(),
         uf: Joi.string().required().length(2)
     })
@@ -48,7 +48,7 @@ routes.post('/cases', celebrate({
         title: Joi.string().required(),
         description: Joi.string().required(),
         name: Joi.string().required(),
-        type: Joi.string().required().length(3),
+        type: Joi.string().required(),
         city: Joi.string().required(),
         uf: Joi.string().required().length(2)
         
