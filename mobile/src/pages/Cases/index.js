@@ -10,39 +10,39 @@ import logoImg from '../../assets/logo.png'
 import styles from './styles'
 
 export default function Incidents() {
-    const [incidents, setIncidents] = useState([]);
+    const [cases, setCases] = useState([]);
     const [total, setTotal] = useState(0);
     const [page, setPage] = useState(1)
     const [loading, setLoading] = useState(false)
 
     const navigation = useNavigation();
     
-    function navigateToDetail(incident) {
-        navigation.navigate('Details', { incident })
+    function navigateToDetail(caso) {
+        navigation.navigate('Details', { caso })
     }
-    async function loadIncidents() {
+    async function loadCases() {
         if (loading) {
             return;
         }
 
-        if (total > 0 && incidents.length === total) {
+        if (total > 0 && cases.length === total) {
             return;
         }
 
         setLoading(true);
 
-        const response = await api.get('incidents', {
+        const response = await api.get('cases', {
             params: { page }
         });
 
-        setIncidents([...incidents, ...response.data]);
+        setCases([...cases, ...response.data]);
         setTotal(response.headers['x-total-count'])
         setPage(page + 1);
         setLoading(false);
     }
 
     useEffect(() => {
-        loadIncidents();
+        loadCases();
     }, [])
 
     return(
@@ -59,34 +59,29 @@ export default function Incidents() {
 
 
             <FlatList 
-                data={incidents}
+                data={cases}
                 style={styles.incidentList}
-                keyExtractor={incident => String(incident.id)}
+                keyExtractor={caso => String(caso.id)}
                 showsVerticalScrollIndicator={false}
-                onEndReached={loadIncidents}
+                onEndReached={loadCases}
                 onEndReachedThreshold={0.2}
-                renderItem={({ item: incident  }) => (
+                renderItem={({ item: caso  }) => (
                     <View style={styles.incident}>
-                        <Text style={styles.incidentProperty}>ONG:</Text>
-                        <Text style={styles.incidentValue}>{incident.name}</Text>
+                        <Text style={styles.incidentProperty}>NOME:</Text>
+                        <Text style={styles.incidentValue}>{caso.nameC}</Text>
 
                         <Text style={styles.incidentProperty}>CASO:</Text>
-                        <Text style={styles.incidentValue}>{incident.title}</Text>
+                        <Text style={styles.incidentValue}>{caso.title}</Text>
 
-                        <Text style={styles.incidentProperty}>VALOR:</Text>
-                        <Text style={styles.incidentValue}>
-                            {
-                                Intl.NumberFormat(
-                                'pt-BR', 
-                                { style: 'currency', 
-                                currency: 'BRL' 
-                                }).format(incident.value)
-                            }
-                        </Text>
+                        <Text style={styles.incidentProperty}>TIPO SANGUINEO:</Text>
+                        <Text style={styles.incidentValue}>{caso.type}</Text>
+
+                        <Text style={styles.incidentProperty}>CIDADE / ESTADO:</Text>
+                        <Text style={styles.incidentValue}>{caso.city} / {caso.uf}</Text>
 
                         <TouchableOpacity 
                             style={styles.detailsButton} 
-                            onPress={() => navigateToDetail(incident)}
+                            onPress={() => navigateToDetail(caso)}
                         >
                             <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
                             <Feather name="arrow-right" size={16} color="#E02041" />

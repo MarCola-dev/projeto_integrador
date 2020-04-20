@@ -11,11 +11,9 @@ module.exports = {
    
         const id = crypto.randomBytes(4).toString('HEX'); //generateUniqueId;
 
-       
-        
         const situação = await connection('users').insert({
            id,
-           name,
+           nameU: name,
            email,
            password,
            whatsapp,

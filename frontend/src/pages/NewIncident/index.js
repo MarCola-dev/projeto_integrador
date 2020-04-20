@@ -14,7 +14,6 @@ export default function NewIncident() {
     const [city, setCity] = useState('')
     const [uf, setUf] = useState('')
 
-    const ongId = localStorage.getItem('ongId')
     const history = useHistory()
 
     async function handleNewIncident(e)  {
@@ -30,12 +29,8 @@ export default function NewIncident() {
         };
 
         try {
-            await api.post('cases', data, {
-                headers: {
-                    Authorization: ongId,
-                }
-            })
-
+            await api.post('cases', data )
+            
             history.push('/profile')
         } catch (err) {
             alert('Error ao cadastrar caso, tente novamente!')

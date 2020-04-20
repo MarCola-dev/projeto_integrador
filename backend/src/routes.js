@@ -12,7 +12,7 @@ const routes = express.Router();
 routes.post('/sessions',celebrate({
     [Segments.BODY]: Joi.object().keys({
         email: Joi.string().required().email(),
-        password: Joi.string().required().min(6).max(8),
+        password: Joi.string().required().min(6),
     })
 }), SessionController.create);
 
@@ -22,7 +22,7 @@ routes.post('/users', celebrate({
     [Segments.BODY]: Joi.object().keys({
         name: Joi.string().required(),
         email: Joi.string().required().email(),
-        password: Joi.string().required().min(6).max(8),
+        password: Joi.string().required().min(6),
         whatsapp: Joi.string().required().min(10).max(11),
         type: Joi.string().required(),
         city: Joi.string().required(),

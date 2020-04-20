@@ -1,8 +1,6 @@
 const connection = require('../database/connection');
 
 module.exports = {
-   
-   
     async index(request, response){
         const { page = 1 } = request.query;
 
@@ -13,8 +11,8 @@ module.exports = {
             .limit(5)
             .offset((page - 1) * 5)
             .select([
-            'users.*', 
-            'users.name', 
+            'cases.*', 
+            'users.nameU', 
             'users.email', 
             'users.whatsapp', 
             'users.city', 
@@ -29,13 +27,11 @@ module.exports = {
 
     async create(request, response) {
         const { title, description, name, type, city, uf } = request.body;
-        request.headers;
         const users_id = request.headers.authorization;
-
         const [id] = await connection('cases').insert({
             title,
             description,
-            name, 
+            nameC: name, 
             type, 
             city, 
             uf,

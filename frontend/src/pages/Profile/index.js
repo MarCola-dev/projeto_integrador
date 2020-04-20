@@ -4,6 +4,8 @@ import { FiPower, FiTrash2} from 'react-icons/fi'
 
 import api from '../../services/api'
 
+import { logout, getToken } from '../../services/auth'
+
 import './styles.css'
 
 import logoImg from '../../assets/mascote.png'
@@ -12,15 +14,14 @@ export default function Profile() {
     const [cases, setCases] = useState([])
     
     const history = useHistory()    
-    const Id = localStorage.getItem('Id')
+    const Id = getToken();
     const Name = localStorage.getItem('Name')
 
-    
 
     useEffect(() => {
         api.get('profile', {
             headers: {
-                Authorization: Id,
+                authorization: Id,
             }
         }).then(response => {
             setCases(response.data);
@@ -31,7 +32,7 @@ export default function Profile() {
         try {
             await api.delete(`cases/${id}`, {
                 headers: {
-                    Authorization: Id,
+                    authorization: Id,
                 }
             })
 
@@ -42,7 +43,7 @@ export default function Profile() {
     }
 
     function handleLogout() {
-        localStorage.clear();
+        logout()
 
         history.push('/')
     }
@@ -51,7 +52,7 @@ export default function Profile() {
         <div className="profile-container">
             <header>
                 <img src={logoImg} alt="Be The Hero"/>
-                <span>Bem vinda, {Name}</span>
+                <span>Bem vindo(a), {Name}</span>
 
                 <Link className="button" to="/cases/new">Cadastrar novo caso</Link>
                 <button onClick={handleLogout} type="button">

@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 const AppStack = createStackNavigator();
 
-import Incidents from './pages/Incidents'
+import Cases from './pages/Cases'
 import Details from './pages/Details'
 
 export default function Routes() {
@@ -12,7 +12,7 @@ export default function Routes() {
         <NavigationContainer>
 
             <AppStack.Navigator screenOptions={{ headerShown: false }}>
-                <AppStack.Screen name="Incidets" component={Incidents} />
+                <AppStack.Screen name="Cases" component={Cases} />
                 <AppStack.Screen name="Details" component={Details} />
             </AppStack.Navigator>
 

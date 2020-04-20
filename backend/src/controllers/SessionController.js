@@ -2,14 +2,14 @@ const connection = require('../database/connection');
 
 module.exports = {
     async create(request, response){
-        const { email, password }= request.body;
+        const { email, password } = request.body;
         
 
         const user = await connection('users').where({
-        'email':email,
-        'password':password
+        'email': email,
+        'password': password
         })
-        .select('name')
+        .select('*')
         .first();
 
         if(!user){

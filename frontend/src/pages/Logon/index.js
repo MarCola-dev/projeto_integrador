@@ -22,9 +22,9 @@ export default function Logon() {
         } else {
             try {
                 const response = await api.post("/sessions", { email, password });
-                login(response.data.token)
+                login(response.data.id)
 
-                localStorage.setItem('Name', response.data.name)
+                localStorage.setItem('Name', response.data.nameU)
                 localStorage.setItem('Id', response.data.id)
                 history.push('/profile')
             } catch (err) {
@@ -39,7 +39,7 @@ export default function Logon() {
                 <img src={logoImg} alt="Mais Sangue"/>
 
                 <form onSubmit={handleLogin}>
-                    <h1>Faça seu logon</h1>
+                    <h1>Faça seu login</h1>
 
                     <input 
                         placeholder="Seu email"

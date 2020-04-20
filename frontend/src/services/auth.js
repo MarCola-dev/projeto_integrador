@@ -1,4 +1,4 @@
-export const TOKEN_KEY = "@mais-token";
+export const TOKEN_KEY = "authorization";
 export const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
 export const getToken = () => localStorage.getItem(TOKEN_KEY);
 export default function login(token) {
