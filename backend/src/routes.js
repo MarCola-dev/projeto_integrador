@@ -20,7 +20,7 @@ routes.get('/users', UsersController.index);
 
 routes.post('/users', celebrate({
     [Segments.BODY]: Joi.object().keys({
-        name: Joi.string().required(),
+        nameU: Joi.string().required(),
         email: Joi.string().required().email(),
         password: Joi.string().required().min(6),
         whatsapp: Joi.string().required().min(10).max(11),
@@ -47,7 +47,7 @@ routes.post('/cases', celebrate({
     [Segments.BODY]: Joi.object().keys({
         title: Joi.string().required(),
         description: Joi.string().required(),
-        name: Joi.string().required(),
+        nameC: Joi.string().required(),
         type: Joi.string().required(),
         city: Joi.string().required(),
         uf: Joi.string().required().length(2)
