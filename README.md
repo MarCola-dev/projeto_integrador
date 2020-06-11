@@ -1,4 +1,5 @@
 💻 Project
+
 Mais Sangue...
 
 🚀 Technologies
@@ -20,7 +21,7 @@ Expo
 ...
 
 ℹ️ Como usar
-To clone and run this application, you will need [Git] (https://git-scm.com) installed on your computer, or simply download the compressed application [LINK] (https://github.com/MarCola-dev/projeto_integrador /archive/master.zip)
+To clone and run this application, you will need [Git] (https://git-scm.com) installed on your computer, or simply download the compressed application [LINK] (https://github.com/MarCola-dev/projeto_integrador/archive/master.zip)
 
 Install Under construction 🚧
   # Clonando o repositório
