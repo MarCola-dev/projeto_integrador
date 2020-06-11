@@ -23,7 +23,7 @@ routes.post('/users', celebrate({
         nameU: Joi.string().required(),
         email: Joi.string().required().email(),
         password: Joi.string().required().min(6),
-        whatsapp: Joi.string().required().min(10).max(11),
+        whatsapp: Joi.string().required(),
         type: Joi.string().required(),
         city: Joi.string().required(),
         uf: Joi.string().required().length(2)

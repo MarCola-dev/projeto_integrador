@@ -8,7 +8,7 @@ import './styles.css'
 import logoImg from '../../assets/mascote.png'
 
 export default function Register() {
-    const [name, setName] = useState('')
+    const [nameU, setNameU] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -26,12 +26,12 @@ export default function Register() {
             return alert("Senhas não conferem")
         }
 
-        if (!name || !email || !password || !confirmPassword || !whatsapp || !type || !city || !uf ) {
-            return alert(`Preencha todos os campos ${type}`)            
+        if (!nameU || !email || !password || !confirmPassword || !whatsapp || !type || !city || !uf ) {
+            return alert(`Preencha todos os campos`)            
         } 
 
         const data = {
-            name,
+            nameU,
             email,
             password,
             whatsapp,
@@ -46,6 +46,7 @@ export default function Register() {
             history.push('/')
         } catch (err) {
             alert("Error ao cadastrar, por favor, tente novamente!");
+            console.log(data)
         }
         
     }
@@ -70,8 +71,8 @@ export default function Register() {
                     
                     <input 
                         placeholder="Digite seu nome"
-                        value={name}
-                        onChange={e => setName(e.target.value)} 
+                        value={nameU}
+                        onChange={e => setNameU(e.target.value)} 
                     />
                     <input 
                         type="email" 

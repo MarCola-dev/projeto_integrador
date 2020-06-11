@@ -48,7 +48,7 @@ export default function Incidents() {
     return(
         <View style={styles.container}>
             <View style={styles.header}>
-                <Image source={logoImg} />
+                {/* <Image source={} /> */}
                 <Text style={styles.headerText}>
                     Total de {total} <Text style={styles.headerTextBold}>casos</Text>.
                 </Text>

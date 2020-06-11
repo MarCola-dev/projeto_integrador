@@ -36,7 +36,7 @@ export default function Details() {
     return(
         <View  style={styles.container}>
             <View style={styles.header}>
-                <Image source={logoImg} />
+                {/* <Image source={} /> */}
                 
                 <TouchableOpacity  onPress={navigateBack}>
                     <Feather name="arrow-left" size={28} color="#E02140" />
