@@ -9,7 +9,7 @@ import './styles.css'
 export default function NewIncident() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [name, setName] = useState('');
+    const [nameC, setNameC] = useState('');
     const [type, setType] = useState('')
     const [city, setCity] = useState('')
     const [uf, setUf] = useState('')
@@ -22,7 +22,7 @@ export default function NewIncident() {
         const data = {
             title,
             description,
-            name,
+            nameC,
             type,
             city,
             uf,
@@ -65,8 +65,8 @@ export default function NewIncident() {
                     <div className="input-group">
                         <input
                             placeholder="Nome"
-                            value={name}
-                            onChange={e => setName(e.target.value)} 
+                            value={nameC}
+                            onChange={e => setNameC(e.target.value)} 
                         />
                         
                         <select name="Tipo sanguineo" onChange={e => setType(e.target.value)}>

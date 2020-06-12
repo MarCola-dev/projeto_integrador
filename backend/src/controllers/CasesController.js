@@ -26,12 +26,12 @@ module.exports = {
 
 
     async create(request, response) {
-        const { title, description, name, type, city, uf } = request.body;
+        const { title, description, nameC, type, city, uf } = request.body;
         const users_id = request.headers.authorization;
         const [id] = await connection('cases').insert({
             title,
             description,
-            nameC: name, 
+            nameC,
             type, 
             city, 
             uf,
